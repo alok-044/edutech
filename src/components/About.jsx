@@ -57,7 +57,7 @@ const About = () => {
 
           <div className="about-subtext text-lg md:text-xl max-w-2xl mx-auto text-center mt-8 text-slate-300 leading-relaxed mix-blend-plus-lighter">
             <p className="font-medium text-white mb-4">
-              Edify AI stands as your personalized guide through the maze of education.
+              Ed X AI stands as your personalized guide through the maze of education.
             </p>
             <p className="font-light text-slate-400">
               Whether you're a beginner or a professional, Edify AI is your partner in mastering new skills, 

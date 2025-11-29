@@ -58,13 +58,7 @@ const HowItWorks = () => {
         </h2>
       </RevealOnScroll>
 
-      {/* --- 3D SCENE LAYER (CENTERED) --- */}
-      {/* REMOVED 'pointer-events-none' to enable cursor interaction */}
       
-
-      {/* --- CONTENT LAYER --- */}
-      {/* pointer-events-none on the container allows clicks to pass through to the Spline, 
-          while pointer-events-auto on StepCard ensures the cards themselves remain interactive */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full items-center">
           

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BackgroundPaths from "./ui/BackgroundPaths";
 import TextScramble from "./ui/TextScramble";
-import SyntheticCard from "./ui/SyntheticCard";
+import Carousel3D from "./ui/Carousel3D"; // Import the new component
 import ShaderBackground from "./ui/ShaderBackground";
 
 const Hero = () => {
@@ -26,18 +26,17 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center overflow-hidden bg-black">
       
-      {/* --- A. SHADER BACKGROUND (Refactored) --- */}
-      {/* Pass the specific Blue color and 0.6 alpha used in the original Hero */}
+      {/* --- A. SHADER BACKGROUND --- */}
       <ShaderBackground color="red" alpha={1} />
 
       {/* --- B. BACKGROUND PATHS --- */}
-      <div className="absolute inset-0 z-1 pointer-events-none opacity-0">
+      <div className="absolute inset-0 z-1 pointer-events-none opacity-50">
          <BackgroundPaths />
       </div>
       
       {/* --- C. MAIN CONTENT --- */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-none">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pointer-events-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center pointer-events-auto">
           
           {/* LEFT COLUMN: Text Content */}
           <motion.div
@@ -115,10 +114,10 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Synthetic Card */}
-          <div className="hidden lg:flex items-center justify-center h-full w-full relative">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/20 blur-[100px] rounded-full -z-10" />
-            <SyntheticCard />
+          {/* RIGHT COLUMN: 3D Carousel */}
+          <div className="hidden lg:flex items-center justify-center h-[720px] w-full relative perspective-[2000px]">
+            {/* Render the Carousel */}
+            <Carousel3D />
           </div>
 
         </div>

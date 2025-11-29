@@ -50,7 +50,7 @@ const WhatIsEdify = () => {
         </h2>
         
         <p className="max-w-3xl mx-auto text-gray-400 text-base md:text-lg leading-relaxed mb-16">
-          Edify AI is your all-in-one learning platform that combines AI-powered courses, intelligent agents, learning pathways, and career tools. Whether you're starting your first course, practicing for interviews, or building your professional profile, we make it simple and effective.
+          Ed X AI is your all-in-one learning platform that combines AI-powered courses, intelligent agents, learning pathways, and career tools. Whether you're starting your first course, practicing for interviews, or building your professional profile, we make it simple and effective.
         </p>
 
         {/* --- Features Grid --- */}
