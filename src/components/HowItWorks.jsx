@@ -48,7 +48,7 @@ const HowItWorks = () => {
       
       {/* --- BACKGROUND GALAXY --- */}
       <div className="absolute inset-0 z-0">
-         <ShaderBackground color="green" alpha={1} />
+         <ShaderBackground color="red" alpha={1} />
       </div>
       
       {/* --- TITLE --- */}
@@ -60,7 +60,9 @@ const HowItWorks = () => {
 
       {/* --- 3D SCENE LAYER (CENTERED) --- */}
       {/* REMOVED 'pointer-events-none' to enable cursor interaction */}
-      
+      <div className="absolute inset-0 z-0 top-0 left-0 w-full h-full">
+         <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" />
+      </div>
 
       {/* --- CONTENT LAYER --- */}
       {/* pointer-events-none on the container allows clicks to pass through to the Spline, 

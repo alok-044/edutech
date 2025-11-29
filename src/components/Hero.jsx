@@ -28,10 +28,10 @@ const Hero = () => {
       
       {/* --- A. SHADER BACKGROUND (Refactored) --- */}
       {/* Pass the specific Blue color and 0.6 alpha used in the original Hero */}
-      <ShaderBackground color="green" alpha={1} />
+      <ShaderBackground color="red" alpha={1} />
 
       {/* --- B. BACKGROUND PATHS --- */}
-      <div className="absolute inset-0 z-1 pointer-events-none opacity-0">
+      <div className="absolute inset-0 z-1 pointer-events-none opacity-20">
          <BackgroundPaths />
       </div>
       
