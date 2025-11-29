@@ -31,7 +31,7 @@ const Hero = () => {
       <ShaderBackground color="red" alpha={1} />
 
       {/* --- B. BACKGROUND PATHS --- */}
-      <div className="absolute inset-0 z-1 pointer-events-none opacity-20">
+      <div className="absolute inset-0 z-1 pointer-events-none opacity-0">
          <BackgroundPaths />
       </div>
       
