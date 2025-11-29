@@ -82,11 +82,7 @@ const Navbar = () => {
   }, [location]);
 
   // --- Handle Chat Tab Activation ---
-  useEffect(() => {
-    if (activeTab === "Chat") {
-      setIsChatOpen(true);
-    }
-  }, [activeTab]);
+  
 
   const handleChatClose = () => {
     setIsChatOpen(false);
