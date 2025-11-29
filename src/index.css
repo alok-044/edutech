@@ -5,7 +5,7 @@ html.lenis, html.lenis body {
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important; /* IMPORTANT: Disable native smooth scroll */
+  scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
@@ -18,4 +18,81 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* --- About Component Styles --- */
+.mask-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 20;
+  height: 60vh;
+  width: 30vw;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .mask-clip-path {
+    width: 80vw;
+  }
+}
+
+/* --- FloatingImage Component Styles --- */
+.story-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: url(#flt_tag);
+}
+
+.story-img-mask {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+}
+
+.story-img-content {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+/* --- Contact Component Styles --- */
+.contact-clip-path-1 {
+  clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contact-clip-path-1 img,
+.contact-clip-path-2 img,
+.sword-man-clip-path img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-clip-path-2 {
+  clip-path:QP polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sword-man-clip-path {
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

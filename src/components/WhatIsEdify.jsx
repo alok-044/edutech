@@ -46,7 +46,7 @@ const WhatIsEdify = () => {
       >
         {/* --- Header Content --- */}
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-          What Is Edify AI?
+          What Is Ed X AI?
         </h2>
         
         <p className="max-w-3xl mx-auto text-gray-400 text-base md:text-lg leading-relaxed mb-16">

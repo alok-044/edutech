@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 z-10">
         <div className="md:col-span-2">
           <h2 className="text-3xl font-bold text-white mb-4 tracking-tighter">
-            EDIFY<span className="text-blue-500">.AI</span>
+            ED X<span className="text-blue-500"> AI</span>
           </h2>
           <p className="text-gray-400 max-w-sm leading-relaxed">
             Reimagining education through artificial intelligence. 
@@ -56,7 +56,7 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-white/5 mt-auto z-10">
         <div className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">
-          © 2025 Edify AI Inc. // System Status: Stable
+          © 2025 Ed X AI Inc. // System Status: Stable
         </div>
         <div className="flex gap-6 mt-4 md:mt-0">
           <span className="text-[10px] text-gray-600 hover:text-white cursor-pointer transition-colors">PRIVACY</span>

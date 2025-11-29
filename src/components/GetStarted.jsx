@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useInView } from "framer-motion"; // Import useInView
+import { useInView } from "framer-motion";
 
 // --- SHADER DEFINITIONS ---
 const vertexShader = `
@@ -29,10 +29,8 @@ const fragmentShader = `
 
   void mainImage(out vec4 fragColor, in vec2 fragCoord) {
       vec2 p = 6.0 * ((fragCoord.xy - 0.5 * u_resolution.xy) / u_resolution.y);
-
       vec2 polar = toPolar(p);
       float r = polar.x;
-
       vec2 i = p;
       float c = 0.0;
       float rot = r + u_time + p.x * 0.100;
@@ -96,7 +94,6 @@ const ShaderPlane = ({ vertexShader, fragmentShader, uniforms }) => {
   );
 };
 
-// --- DATA: CARDS ---
 const cardsData = [
   {
     title: "AI Agent Meetings",
@@ -136,8 +133,7 @@ const cardsData = [
   },
 ];
 
-// --- MAIN HERO COMPONENT ---
-const SyntheticHero = ({
+const GetStarted = ({
   title = "Your Learning Journey Starts Here",
   description = "Everything you need to learn, grow, and succeed in one place. Perfect for beginners and professionals alike.",
   badgeText = "GET STARTED",
@@ -171,50 +167,29 @@ const SyntheticHero = ({
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Badge
       if (badgeWrapperRef.current) {
         gsap.set(badgeWrapperRef.current, { autoAlpha: 0, y: -20 });
         tl.to(badgeWrapperRef.current, { autoAlpha: 1, y: 0, duration: 0.8 }, 0);
       }
-
-      // 2. Headline
       if (headingRef.current) {
          gsap.set(headingRef.current, { autoAlpha: 0, y: 30, scale: 0.95 });
          tl.to(headingRef.current, { autoAlpha: 1, y: 0, scale: 1, duration: 1 }, 0.2);
       }
-
-      // 3. Paragraph
       if (paragraphRef.current) {
         gsap.set(paragraphRef.current, { autoAlpha: 0, y: 20 });
         tl.to(paragraphRef.current, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.4);
       }
-
-      // 4. Buttons
       if (ctaRef.current) {
         gsap.set(ctaRef.current.children, { autoAlpha: 0, y: 10 });
-        tl.to(ctaRef.current.children, { 
-            autoAlpha: 1, 
-            y: 0, 
-            duration: 0.6, 
-            stagger: 0.1 
-        }, 0.6);
+        tl.to(ctaRef.current.children, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1 }, 0.6);
       }
-
-      // 5. Cards Header
       if (cardsHeaderRef.current) {
         gsap.set(cardsHeaderRef.current, { autoAlpha: 0, y: 20 });
         tl.to(cardsHeaderRef.current, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.8);
       }
-
-      // 6. Cards Grid
       if (cardsGridRef.current) {
         gsap.set(cardsGridRef.current.children, { autoAlpha: 0, y: 20 });
-        tl.to(cardsGridRef.current.children, { 
-            autoAlpha: 1, 
-            y: 0, 
-            duration: 0.8, 
-            stagger: 0.1 
-        }, 0.9);
+        tl.to(cardsGridRef.current.children, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.1 }, 0.9);
       }
     },
     { scope: sectionRef, dependencies: [isInView] }
@@ -225,7 +200,7 @@ const SyntheticHero = ({
       ref={sectionRef}
       className="relative flex flex-col items-center justify-start min-h-screen bg-black overflow-x-hidden"
     >
-      {/* Background Canvas (Fixed) */}
+      {/* Background Canvas */}
       <div className="absolute inset-0 z-0 pointer-events-none top-0 left-0 w-full h-full">
         <Canvas>
           <ShaderPlane
@@ -236,88 +211,52 @@ const SyntheticHero = ({
         </Canvas>
       </div>
 
-      {/* Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 flex flex-col items-center text-center">
-        
-        {/* Badge */}
         <div ref={badgeWrapperRef} className="opacity-0">
           <div className="mb-6 bg-white/5 hover:bg-white/10 text-emerald-300 backdrop-blur-md border border-white/10 uppercase tracking-wider font-medium flex items-center gap-2 px-4 py-1.5 rounded-full transition-colors">
-            <span className="text-[10px] font-light tracking-[0.18em] text-emerald-100/80">
-              {badgeLabel}
-            </span>
+            <span className="text-[10px] font-light tracking-[0.18em] text-emerald-100/80">{badgeLabel}</span>
             <span className="h-1 w-1 rounded-full bg-emerald-200/60" />
-            <span className="text-xs font-light tracking-tight text-emerald-200">
-              {badgeText}
-            </span>
+            <span className="text-xs font-light tracking-tight text-emerald-200">{badgeText}</span>
           </div>
         </div>
 
-        {/* Heading */}
-        <h1
-          ref={headingRef}
-          className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-6 drop-shadow-2xl opacity-0"
-        >
+        <h1 ref={headingRef} className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-6 drop-shadow-2xl opacity-0">
           {title}
         </h1>
 
-        {/* Description */}
-        <p
-          ref={paragraphRef}
-          className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed opacity-0"
-        >
+        <p ref={paragraphRef} className="text-emerald-50/80 text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed opacity-0">
           {description}
         </p>
 
-        {/* Buttons */}
-        <div
-          ref={ctaRef}
-          className="flex flex-wrap items-center justify-center gap-4 mb-24"
-        >
+        <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-24">
           {ctaButtons.map((button, index) => {
             const isPrimary = button.primary ?? index === 0;
-            const baseClasses = "px-8 py-3 rounded-xl text-base font-medium transition-all cursor-pointer backdrop-blur-lg flex items-center justify-center opacity-0";
-            const primaryClasses = "bg-emerald-500/80 hover:bg-emerald-400/80 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]";
-            const secondaryClasses = "border border-white/20 text-white hover:bg-white/10";
-
             return (
                 <a
                   key={index}
                   href={button.href}
-                  className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}
+                  className={`px-8 py-3 rounded-xl text-base font-medium transition-all cursor-pointer backdrop-blur-lg flex items-center justify-center opacity-0 ${
+                    isPrimary ? "bg-emerald-500/80 hover:bg-emerald-400/80 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]" : "border border-white/20 text-white hover:bg-white/10"
+                  }`}
                 >
-                  
                   {button.text}
                 </a>
             );
           })}
         </div>
 
-        {/* --- NEW SECTION: QUICK START --- */}
         <div className="w-full">
           <h2 ref={cardsHeaderRef} className="text-3xl font-semibold text-white mb-10 tracking-tight opacity-0">
             Quick Start: Choose Your Path
           </h2>
-          
           <div ref={cardsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             {cardsData.map((card, index) => (
-              <div 
-                key={index} 
-                className="group relative bg-white/5 border border-white/10 hover:border-emerald-500/50 rounded-2xl p-6 backdrop-blur-md transition-all duration-300 hover:bg-white/10 opacity-0"
-              >
-                {/* Icon Box */}
+              <div key={index} className="group relative bg-white/5 border border-white/10 hover:border-emerald-500/50 rounded-2xl p-6 backdrop-blur-md transition-all duration-300 hover:bg-white/10 opacity-0">
                 <div className="h-12 w-12 rounded-xl bg-blue-500 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
                   {card.icon}
                 </div>
-                
-                {/* Text Content */}
-                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">
-                  {card.description}
-                </p>
-                
-                {/* Link */}
+                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{card.title}</h3>
+                <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">{card.description}</p>
                 <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
                   Get Started <span className="ml-1">→</span>
                 </a>
@@ -325,10 +264,9 @@ const SyntheticHero = ({
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
 };
 
-export default SyntheticHero;
+export default GetStarted;

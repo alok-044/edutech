@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import BackgroundPaths from "./ui/BackgroundPaths";
 import TextScramble from "./ui/TextScramble";
 import SyntheticCard from "./ui/SyntheticCard";
-import ShaderBackground from "./ui/ShaderBackground"; // Import the new component
+import ShaderBackground from "./ui/ShaderBackground";
 
 const Hero = () => {
   const containerVariants = {
@@ -28,10 +28,10 @@ const Hero = () => {
       
       {/* --- A. SHADER BACKGROUND (Refactored) --- */}
       {/* Pass the specific Blue color and 0.6 alpha used in the original Hero */}
-      <ShaderBackground color="#1a66cc" alpha={0.6} />
+      <ShaderBackground color="green" alpha={1} />
 
       {/* --- B. BACKGROUND PATHS --- */}
-      <div className="absolute inset-0 z-1 pointer-events-none opacity-50">
+      <div className="absolute inset-0 z-1 pointer-events-none opacity-0">
          <BackgroundPaths />
       </div>
       

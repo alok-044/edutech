@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from './components/Hero'
-import SyntheticHero from './components/GetStarted'
+import GetStarted from './components/GetStarted' // Updated Import
 import Navbar from './components/Navbar'
 import HowItWorks from './components/HowItWorks'
 import WhatIsEdify from './components/WhatIsEdify'
@@ -9,18 +9,15 @@ import FloatingImage from './components/FloatingImage'
 import About from './components/About'
 import Features from './components/Features'
 import Contact from './components/Contact'
-import SmoothScrollWrapper from './components/ui/SmoothScrollWrapper' // Import the wrapper
+import SmoothScrollWrapper from './components/ui/SmoothScrollWrapper'
 
 const App = () => {
   return (
     <SmoothScrollWrapper>
-      {/* Added overflow-hidden here to ensure no double scrollbars appear 
-         before Lenis takes over.
-      */}
       <div className="w-full overflow-hidden bg-black">
         <Navbar />
         <Hero />
-        <SyntheticHero />
+        <GetStarted />
         <HowItWorks />
         <WhatIsEdify />
         <About />

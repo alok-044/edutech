@@ -42,7 +42,7 @@ const Navbar = () => {
           {/* 1. Logo */}
           <div className="flex items-center gap-2 cursor-pointer z-50">
             <span className="text-2xl font-bold text-white tracking-wide">
-              Edify AI
+              Ed X AI
             </span>
           </div>
 

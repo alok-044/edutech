@@ -107,7 +107,7 @@ const Features = () => (
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-blue-50">
-        In a world overflowing with information, Edify AI stands
+        In a world overflowing with information, Ed X AI stands
         </p>
         <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
         Our platform is built to simplify your learning journey, offering tailored courses, real-time community interactions, and tools to help you build skills, secure opportunities, and thrive.
