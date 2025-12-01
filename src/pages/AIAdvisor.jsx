@@ -11,7 +11,7 @@ import {
   ArrowRight,
   MessageSquare
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
+import ShaderBackground from "../components/bg/ShaderBackground";
 
 const AIAdvisor = () => {
   const [query, setQuery] = useState("");

@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatedTitle from "./ui/AnimatedTitle";
-import Button from "./ui/Button";
+import Button from "./buttons/Button";
 
 // Improved ImageClipBox: Ensures image covers container properly and accepts extra classes
 const ImageClipBox = ({ src, clipClass }) => (

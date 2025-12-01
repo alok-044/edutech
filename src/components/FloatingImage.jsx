@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
-import Button from "./ui/Button";
+import Button from "./buttons/Button";
 import AnimatedTitle from "./ui/AnimatedTitle";
 
 const FloatingImage = () => {

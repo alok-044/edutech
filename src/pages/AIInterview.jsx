@@ -5,8 +5,8 @@ import {
   Target, 
   Play 
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
-import MockInterviewModal from "../components/ui/MockInterviewModal"; // Import the modal
+import ShaderBackground from "../components/bg/ShaderBackground";
+import MockInterviewModal from "../components/models/MockInterviewModal"; // Import the modal
 
 const AIInterview = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

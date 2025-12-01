@@ -13,7 +13,7 @@ import {
   Save,
   CheckCircle2
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
+import ShaderBackground from "../components/bg/ShaderBackground";
 
 const steps = [
   { id: 1, title: "Personal Info", icon: User },

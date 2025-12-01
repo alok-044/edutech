@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
 import AnimatedTitle from "./ui/AnimatedTitle";
-import BackgroundPaths from "./ui/BackgroundPaths";
+import BackgroundPaths from "./bg/BackgroundPaths";
 
 gsap.registerPlugin(ScrollTrigger);
 

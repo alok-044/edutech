@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Bot, Users } from "lucide-react";
-import Ballpit from "./ui/Ballpit";
+import Ballpit from "./bg/Ballpit";
+import BackgroundPaths from "./bg/BackgroundPaths";
 
 const features = [
   {
@@ -24,6 +25,9 @@ const features = [
 const WhatIsEdify = () => {
   return (
     <section className="relative w-full bg-black py-24 px-6 flex justify-center overflow-hidden min-h-[600px]">
+      <div className="absolute inset-0 z-1 pointer-events-none opacity-100">
+               <BackgroundPaths />
+            </div>
       
       {/* --- LAYER 0: BALLPIT BACKGROUND --- */}
       {/* Added absolute positioning class here */}
@@ -34,6 +38,10 @@ const WhatIsEdify = () => {
         friction={1}
         wallBounce={1}
         followCursor={true}
+        // ADD THIS LINE BELOW:
+        colors={["red", "blue", "green"]} // Blue, Purple, Cyan mix
+        // Optional: Change ambient light color
+        ambientColor="#ffffff" 
       />
 
       {/* --- LAYER 1: CONTENT --- */}

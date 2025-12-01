@@ -10,9 +10,9 @@ import {
   Calendar,
   Users
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
-import CreateAgentModal from "../components/ui/CreateAgentModal";
-import NewMeetingModal from "../components/ui/NewMeetingModal";
+import ShaderBackground from "../components/bg/ShaderBackground";
+import CreateAgentModal from "../components/models/CreateAgentModal";
+import NewMeetingModal from "../components/models/NewMeetingModal";
 
 const AIMeeting = () => {
   const [activeTab, setActiveTab] = useState("agent"); // 'agent' or 'normal'

@@ -10,7 +10,7 @@ import {
   Zap, 
   ListOrdered 
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
+import ShaderBackground from "../components/bg/ShaderBackground";
 
 const CreateLearningPath = () => {
   return (

@@ -11,7 +11,7 @@ import {
   AlignLeft, 
   Tag 
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
+import ShaderBackground from "../components/bg/ShaderBackground";
 
 const ImproveATSScore = () => {
   const [activeTab, setActiveTab] = useState("build");

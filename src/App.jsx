@@ -23,14 +23,17 @@ import AIMeeting from './pages/AIMeeting';
 import AIPath from './pages/AIPath';
 import CreateLearningPath from './pages/CreateLearningPath';
 import AIAdvisor from './pages/AIAdvisor';
-import AICourse from './pages/AICourse';
+import AICourse from './courses/AICourse';
 import SignIn from './pages/SignIn'; // Import SignIn
 import SignUp from './pages/SignUp'; // Import SignUp
-
+import Dashboard from './pages/Dashboard';
+import CourseDetails from './courses/CourseDetails';
+import QuizPage from './courses/QuizPage';
 // Home Component
 const Home = () => (
   <>
     <Hero />
+    
     <GetStarted />
     <HowItWorks />
     <WhatIsEdify />
@@ -65,6 +68,9 @@ const App = () => {
             <Route path="/ai-path/create" element={<CreateLearningPath />} />
             <Route path="/ai-advisor" element={<AIAdvisor />} />
             <Route path="/ai-course" element={<AICourse />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/ai-course/:id" element={<CourseDetails />} />
+            <Route path="/ai-course/:id/quiz" element={<QuizPage />} />
           </Routes>
           
           <Footer />

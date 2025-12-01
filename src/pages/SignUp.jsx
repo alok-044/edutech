@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff, Sparkles } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
+import ShaderBackground from "../components/bg/ShaderBackground";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);

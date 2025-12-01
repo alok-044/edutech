@@ -11,7 +11,7 @@ import {
     Star,
     Target
 } from 'lucide-react';
-import ShaderBackground from '../components/ui/ShaderBackground';
+import ShaderBackground from '../components/bg/ShaderBackground';
 
 
 const AIPath = () => {

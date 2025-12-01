@@ -7,7 +7,7 @@ import {
   MessageCircle
 } from "lucide-react";
 import { ExpandableTabs } from "./ui/ExpandableTabs";
-import ChatAssistant from "./ui/ChatAssistant";
+import ChatAssistant from "./models/ChatAssistant";
 
 // --- Configuration with Icons ---
 const navLinks = [

@@ -257,7 +257,7 @@ const GetStarted = ({
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{card.title}</h3>
                 <p className="text-sm text-gray-400 font-light leading-relaxed mb-6">{card.description}</p>
-                <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
+                <a href="/ai-course" className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors">
                   Get Started <span className="ml-1">→</span>
                 </a>
               </div>

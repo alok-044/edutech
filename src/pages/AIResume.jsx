@@ -9,8 +9,8 @@ import {
     Plus,
     RefreshCw
 } from "lucide-react";
-import ShaderBackground from "../components/ui/ShaderBackground";
-import ChatAssistant from "../components/ui/ChatAssistant";
+import ShaderBackground from "../components/bg/ShaderBackground";
+import ChatAssistant from "../components/models/ChatAssistant";
 
 const AIResume = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);

@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import BackgroundPaths from "./ui/BackgroundPaths";
+import BackgroundPaths from "./bg/BackgroundPaths";
 import TextScramble from "./ui/TextScramble";
 import Carousel3D from "./ui/Carousel3D"; // Import the new component
-import ShaderBackground from "./ui/ShaderBackground";
+import ShaderBackground from "./bg/ShaderBackground";
 
 const Hero = () => {
   const containerVariants = {

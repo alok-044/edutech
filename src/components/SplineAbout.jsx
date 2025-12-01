@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Spline from '@splinetool/react-spline';
 import { useInView } from "framer-motion";
 // Removed unused NeuralNetwork import
-import ShaderBackground from "./ui/ShaderBackground";
+import ShaderBackground from "./bg/ShaderBackground";
 
 const cardsData = [
   {
