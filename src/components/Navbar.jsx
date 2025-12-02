@@ -17,8 +17,8 @@ const navLinks = [
   { name: "AI Meeting", href: "/ai-meeting", icon: Video },
   { name: "AI Path", href: "/ai-path", icon: Map },
   { name: "AI Advisor", href: "/ai-advisor", icon: Bot },
-  { name: "Chat", href: "#", icon: MessageCircle },
-  { name: "AR Learning", href: "#", icon: Smartphone }
+  { name: "Chat", href: "/chat", icon: MessageCircle },
+  { name: "AR Learning", href: "/ar-learning", icon: Smartphone }
 ];
 
 const eventsData = [
@@ -96,7 +96,7 @@ const Navbar = () => {
       <nav 
         className={`
           fixed left-0 right-0 mx-auto z-50 w-[95%] max-w-7xl 
-          bg-linear-to-r from-black to-blue-950 backdrop-blur-2xl border border-white/10 rounded-full h-18 
+          bg-linear-to-r from-red-950 to-blue-950 backdrop-blur-2xl border border-white/10 rounded-full h-18 
           shadow-2xl shadow-black/50 transition-all duration-500 ease-in-out
           ${isVisible ? "top-2 translate-y-0 opacity-100" : "-top-24 -translate-y-full opacity-0"}
         `}
@@ -276,14 +276,14 @@ const ExpandableDesktopTab = ({ hoveredTab, setHoveredTab }) => {
             <div className="p-2">
               <div className="flex items-center justify-between px-3 py-2 mb-1">
                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">This Month</span>
-                 <a href="#" className="text-[10px] text-blue-400 hover:underline">View All</a>
+                 <a href="/events" className="text-[10px] text-blue-400 hover:underline">View All</a>
               </div>
               
               <div className="flex flex-col gap-1">
                 {eventsData.map((event, idx) => (
                   <a 
                     key={idx} 
-                    href="#" 
+                    href="/events" 
                     className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
                   >
                     <div className="mt-0.5 p-2 bg-white/5 rounded-lg border border-white/5 group-hover:border-white/10 transition-colors">

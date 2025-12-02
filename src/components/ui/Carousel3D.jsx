@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-// FIX: Added 'animate' to the import list below
-import { motion, useMotionValue, useAnimation, useTransform, animate } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { Bot, FileText, Map, Video, Sparkles, Brain } from "lucide-react";
 
 const cards = [
@@ -16,7 +15,6 @@ const Carousel3D = () => {
   const [isHovered, setIsHovered] = useState(false);
   const cylinderRef = useRef(null);
   const rotation = useMotionValue(0);
-  const controls = useAnimation();
   const autoplayRef = useRef();
 
   const cardCount = cards.length;
@@ -27,8 +25,8 @@ const Carousel3D = () => {
   // Continuous Rotation Animation
   useEffect(() => {
     const animateRotation = () => {
-      // Rotate 360 degrees every 20 seconds
-      animate(rotation, rotation.get() - 360, {
+      // Return the animation controls so we can stop it later
+      return animate(rotation, rotation.get() - 360, {
         duration: 25,
         ease: "linear",
         repeat: Infinity,
@@ -42,12 +40,16 @@ const Carousel3D = () => {
     };
 
     if (!isHovered) {
+      // Store the controls in the ref
       autoplayRef.current = animateRotation();
     } else {
-      rotation.stop();
+      // Stop the animation using the controls, NOT the MotionValue
+      if (autoplayRef.current) autoplayRef.current.stop();
     }
 
-    return () => rotation.stop();
+    return () => {
+      if (autoplayRef.current) autoplayRef.current.stop();
+    };
   }, [isHovered, rotation]);
 
   // Handle Drag

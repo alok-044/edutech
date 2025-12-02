@@ -2,6 +2,7 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import { Brain, Rocket, Globe, Code } from "lucide-react"; // Import icons
 
 import AnimatedTitle from "./ui/AnimatedTitle";
 import BackgroundPaths from "./bg/BackgroundPaths";
@@ -22,11 +23,20 @@ const About = () => {
       },
     });
 
+    // 1. Expand the image to full screen
     clipAnimation.to(".mask-clip-path", {
       width: "100vw",
       height: "100vh",
       borderRadius: 0,
     });
+
+    // 2. Fade in the text on the sides as it expands
+    clipAnimation.to(".about-feature-text", {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        ease: "power2.out"
+    }, "-=0.2"); // Start slightly before expansion finishes
   });
 
   return (
@@ -67,17 +77,81 @@ const About = () => {
         </div>
       </div>
 
-      {/* --- SECTION 2: Expanding Image (Clip Path) --- */}
+      {/* --- SECTION 2: Expanding Image with Side Text --- */}
       <div className="h-screen w-screen relative" id="clip">
-        <div className="mask-clip-path about-image bg-gray-900">
+        <div className="mask-clip-path about-image bg-gray-900 relative z-20 overflow-hidden">
+          
+          {/* Background Image */}
           <img
             src="https://images.stockcake.com/public/4/7/c/47cbc193-20fa-41d7-8eb3-4dc9dbf9b184_large/digital-learning-revolution-stockcake.jpg"
             alt="Background"
             className="absolute left-0 top-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+          
+          {/* Dark Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+          
+          {/* Content Overlay Grid */}
+          <div className="absolute inset-0 z-30 flex items-center justify-center px-6 md:px-20 w-full h-full">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-7xl items-center">
+                
+                {/* --- Left Side Text --- */}
+                <div className="flex flex-col gap-12 text-right items-end">
+                    <div className="about-feature-text opacity-0 translate-y-10">
+                        <div className="flex items-center justify-end gap-3 mb-2 text-blue-400">
+                            <h3 className="text-3xl font-bold uppercase tracking-wider">The Mission</h3>
+                            <Brain size={24} />
+                        </div>
+                        <p className="text-gray-300 text-xl leading-relaxed max-w-xs">
+                            Bridging the gap between traditional education and the AI revolution. 
+                            Build with intelligence, not just consume it.
+                        </p>
+                    </div>
+                    <div className="about-feature-text opacity-0 translate-y-10">
+                        <div className="flex items-center justify-end gap-3 mb-2 text-purple-400">
+                            <h3 className="text-3xl font-bold uppercase tracking-wider">Why Now?</h3>
+                            <Globe size={24} />
+                        </div>
+                        <p className="text-gray-300 text-xl leading-relaxed max-w-xs">
+                            AI is reshaping every industry. We provide the velocity you need to adapt 
+                            and lead in the algorithmic economy.
+                        </p>
+                    </div>
+                </div>
+
+                {/* --- Center Spacer (Image Visible Here) --- */}
+                <div className="hidden md:block h-full"></div>
+
+                {/* --- Right Side Text --- */}
+                <div className="flex flex-col gap-12 text-left items-start">
+                    <div className="about-feature-text opacity-0 translate-y-10">
+                        <div className="flex items-center justify-start gap-3 mb-2 text-yellow-400">
+                            <Rocket size={24} />
+                            <h3 className="text-3xl font-bold uppercase tracking-wider">Our Approach</h3>
+                        </div>
+                        <p className="text-gray-300 text-xl leading-relaxed max-w-xs">
+                            Hyper-practical, project-based learning. Deploy real models, 
+                            fine-tune LLMs, and build autonomous agents.
+                        </p>
+                    </div>
+                    <div className="about-feature-text opacity-0 translate-y-10">
+                        <div className="flex items-center justify-start gap-3 mb-2 text-emerald-400">
+                            <Code size={24} />
+                            <h3 className="text-3xl font-bold uppercase tracking-wider">The Outcome</h3>
+                        </div>
+                        <p className="text-gray-300 text-xl leading-relaxed max-w-xs">
+                            Become a future-proof engineer ready to tackle the world's 
+                            most complex challenges.
+                        </p>
+                    </div>
+                </div>
+
+             </div>
+          </div>
+
         </div>
       </div>
+      
     </div>
   );
 };

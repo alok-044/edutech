@@ -29,12 +29,26 @@ import SignUp from './pages/SignUp'; // Import SignUp
 import Dashboard from './pages/Dashboard';
 import CourseDetails from './courses/CourseDetails';
 import QuizPage from './courses/QuizPage';
+import Certificate from './courses/Certificate';
+import EventsPage from './pages/EventsPage';
+import Pricing from './pages/Pricing';
+import ChatPage from './pages/ChatPage';
+import ContactPage from './pages/ContactPage';
+import ARLearning from './ar-learning/ARLearning';
+import LaunchWebAR from './ar-learning/LaunchWebAR';
+import HumanAnatomy from './ar-learning/HumanAnatomy';
+import SolarSystem from './ar-learning/SolarSystem';
+import PhysicsLab from './ar-learning/PhysicsLab';
+import MolecularChemistry from './ar-learning/MolecularChemistry';
+import AncientHistory from './ar-learning/AncientHistory';
+import CircuitBuilder from './ar-learning/CircuitBuilder';
 // Home Component
 const Home = () => (
   <>
     <Hero />
     
     <GetStarted />
+   
     <HowItWorks />
     <WhatIsEdify />
     <About />
@@ -71,6 +85,19 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/ai-course/:id" element={<CourseDetails />} />
             <Route path="/ai-course/:id/quiz" element={<QuizPage />} />
+            <Route path="/ai-course/:id/certificate" element={<Certificate />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/ar-learning" element={<ARLearning />} />
+            <Route path="/ar-learning/anatomy" element={<HumanAnatomy />} />
+            <Route path="/ar-learning/solar-system" element={<SolarSystem />} />
+            <Route path="/ar-learning/launch" element={<LaunchWebAR />} />
+            <Route path="/ar-learning/physics" element={<PhysicsLab />} />
+            <Route path="/ar-learning/chemistry" element={<MolecularChemistry />} />
+            <Route path="/ar-learning/history" element={<AncientHistory />} />
+            <Route path="/ar-learning/circuits" element={<CircuitBuilder />} />
           </Routes>
           
           <Footer />

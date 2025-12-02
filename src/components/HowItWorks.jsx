@@ -1,6 +1,6 @@
 import React from "react";
 import Spline from '@splinetool/react-spline';
-import Galaxy from "./bg/Galaxy";
+
 import RevealOnScroll from "./ui/RevealOnScroll";
 import ShaderBackground from "./bg/ShaderBackground";
 
@@ -57,14 +57,11 @@ const HowItWorks = () => {
           How It Works
         </h2>
       </RevealOnScroll>
-
-      {/* --- 3D SCENE LAYER (CENTERED) --- */}
-      {/* REMOVED 'pointer-events-none' to enable cursor interaction */}
       
+      <div className="absolute inset-0 z-0 top-0 left-0 w-full h-full">
+         <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" />
+      </div>
 
-      {/* --- CONTENT LAYER --- */}
-      {/* pointer-events-none on the container allows clicks to pass through to the Spline, 
-          while pointer-events-auto on StepCard ensures the cards themselves remain interactive */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full items-center">
           

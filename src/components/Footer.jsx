@@ -1,7 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for SPA navigation
 import TextScramble from "./ui/TextScramble";
 
 const Footer = () => {
+  // Define internal navigation links
+  const platformLinks = [
+    { name: "Courses", path: "/ai-course" },
+    { name: "Mentors", path: "/ai-advisor" },
+    { name: "Roadmaps", path: "/ai-path" },
+    { name: "Pricing", path: "/pricing" },
+  ];
+
+  // Define external/social links (placeholders)
+  const socialLinks = [
+    { name: "Discord", href: "#" },
+    { name: "Twitter", href: "#" },
+    { name: "LinkedIn", href: "#" },
+    { name: "Github", href: "#" },
+  ];
+
   return (
     <footer className="w-full h-full bg-[#050505] border-t border-white/10 flex flex-col justify-between p-10 relative overflow-hidden">
       
@@ -12,40 +29,52 @@ const Footer = () => {
       {/* Top Section */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 z-10">
         <div className="md:col-span-2">
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-tighter">
-            ED X<span className="text-blue-500"> AI</span>
-          </h2>
+          <Link to="/" className="inline-block">
+            <h2 className="text-3xl font-bold text-white mb-4 tracking-tighter cursor-pointer">
+              ED X<span className="text-blue-500"> AI</span>
+            </h2>
+          </Link>
           <p className="text-gray-400 max-w-sm leading-relaxed">
             Reimagining education through artificial intelligence. 
             Keep learning. Protect your future. Reimagine what's possible.
           </p>
         </div>
 
+        {/* Platform Links (Internal) */}
         <div>
           <h4 className="text-white font-mono mb-4 text-sm uppercase tracking-widest border-b border-white/10 pb-2 w-fit">
             Platform
           </h4>
           <ul className="space-y-2 text-sm text-gray-500 font-mono">
-            {['Courses', 'Mentors', 'Roadmaps', 'Pricing'].map((item) => (
-              <li key={item}>
-                <a href="#" className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+            {platformLinks.map((item) => (
+              <li key={item.name}>
+                <Link 
+                  to={item.path} 
+                  className="hover:text-blue-400 transition-colors flex items-center gap-2 group"
+                >
                   <span className="w-1 h-1 bg-gray-700 group-hover:bg-blue-400 rounded-full transition-colors" />
-                  <TextScramble>{item}</TextScramble>
-                </a>
+                  <TextScramble>{item.name}</TextScramble>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Connect Links (External) */}
         <div>
           <h4 className="text-white font-mono mb-4 text-sm uppercase tracking-widest border-b border-white/10 pb-2 w-fit">
             Connect
           </h4>
           <ul className="space-y-2 text-sm text-gray-500 font-mono">
-            {['Discord', 'Twitter', 'LinkedIn', 'Github'].map((item) => (
-              <li key={item}>
-                <a href="#" className="hover:text-white transition-colors">
-                  {item}
+            {socialLinks.map((item) => (
+              <li key={item.name}>
+                <a 
+                  href={item.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  {item.name}
                 </a>
               </li>
             ))}

@@ -8,10 +8,10 @@ import {
   RefreshCw, 
   Trophy,
   HelpCircle,
-  Timer
+  Timer,
+  Award // Added Icon
 } from "lucide-react";
 import ShaderBackground from "../components/bg/ShaderBackground";
-import BackgroundPaths from "../components/bg/BackgroundPaths";
 
 const courseData = {
   // 1. Python
@@ -365,6 +365,11 @@ const QuizPage = () => {
   const [showResult, setShowResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
 
+  // Constants
+  const PASSING_SCORE_PERCENTAGE = 60;
+  const scorePercentage = Math.round((score / quizzes.length) * 100);
+  const isPassed = scorePercentage >= PASSING_SCORE_PERCENTAGE;
+
   const handleOptionClick = (index) => {
     if (isAnswered) return;
     setSelectedOption(index);
@@ -392,10 +397,14 @@ const QuizPage = () => {
     setIsAnswered(false);
   };
 
+  const handleClaimCertificate = () => {
+    navigate(`/ai-course/${id}/certificate`);
+  };
+
   if (!quizzes.length) {
     return (
       <div className="min-h-screen w-full bg-black text-white flex items-center justify-center relative overflow-hidden">
-        <BackgroundPaths />
+        <ShaderBackground color="#0f172a" alpha={0.2} />
         <div className="z-10 text-center p-8 bg-[#0A0A0A] border border-white/10 rounded-3xl">
           <HelpCircle className="w-12 h-12 text-gray-500 mx-auto mb-4" />
           <h2 className="text-xl font-bold mb-2">No Quiz Available</h2>
@@ -413,7 +422,7 @@ const QuizPage = () => {
   return (
     <div className="min-h-screen w-full bg-black text-white relative overflow-hidden font-sans selection:bg-blue-500/30">
       <div className="fixed inset-0 z-0">
-        <ShaderBackground color="green" alpha={1} />
+        <ShaderBackground color="#0f172a" alpha={0.2} />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-20 md:py-32">
@@ -516,25 +525,32 @@ const QuizPage = () => {
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", duration: 0.5 }}
-                className="w-24 h-24 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-yellow-500/30"
+                className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 border ${isPassed ? 'bg-yellow-500/20 border-yellow-500/30' : 'bg-red-500/20 border-red-500/30'}`}
               >
-                <Trophy className="w-12 h-12 text-yellow-500" />
+                <Trophy className={`w-12 h-12 ${isPassed ? 'text-yellow-500' : 'text-red-500'}`} />
               </motion.div>
               
-              <h2 className="text-4xl font-bold text-white mb-2">Quiz Completed!</h2>
+              <h2 className="text-4xl font-bold text-white mb-2">{isPassed ? "Quiz Passed!" : "Quiz Failed"}</h2>
               <p className="text-gray-400 mb-8 text-lg">
-                You scored <span className="text-white font-bold text-2xl">{score}</span> out of {quizzes.length}
+                You scored <span className="text-white font-bold text-2xl">{score}</span> out of {quizzes.length} ({scorePercentage}%)
               </p>
+
+              {/* Conditional Score Message */}
+              {!isPassed && (
+                <p className="text-red-400 mb-6 text-sm">
+                  You need at least {PASSING_SCORE_PERCENTAGE}% to claim your certificate.
+                </p>
+              )}
 
               <div className="w-full h-4 bg-white/10 rounded-full max-w-sm mx-auto mb-10 overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${(score / quizzes.length) * 100}%` }}
-                  className={`h-full ${score > quizzes.length / 2 ? 'bg-green-500' : 'bg-orange-500'}`}
+                  className={`h-full ${isPassed ? 'bg-green-500' : 'bg-red-500'}`}
                 />
               </div>
               
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => navigate(-1)}
                   className="px-6 py-3 bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 text-white rounded-xl font-medium transition-colors cursor-pointer"
@@ -543,11 +559,22 @@ const QuizPage = () => {
                 </button>
                 <button 
                   onClick={handleRetry}
-                  className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-colors cursor-pointer shadow-lg shadow-blue-600/20"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 text-white rounded-xl font-medium transition-colors cursor-pointer"
                 >
                   <RefreshCw size={18} />
                   Retry Quiz
                 </button>
+
+                {/* Show Certificate Button only if Passed */}
+                {isPassed && (
+                   <button 
+                     onClick={handleClaimCertificate}
+                     className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-colors cursor-pointer shadow-lg shadow-blue-600/20 animate-pulse"
+                   >
+                     <Award size={18} />
+                     Claim Certificate
+                   </button>
+                )}
               </div>
             </div>
           )}
