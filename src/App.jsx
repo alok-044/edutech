@@ -42,12 +42,14 @@ import PhysicsLab from './ar-learning/PhysicsLab';
 import MolecularChemistry from './ar-learning/MolecularChemistry';
 import AncientHistory from './ar-learning/AncientHistory';
 import CircuitBuilder from './ar-learning/CircuitBuilder';
+import MorphingDemo from './card/MorphingDemo';
+import LearnMore from './pages/LearnMore';
 // Home Component
 const Home = () => (
   <>
     <Hero />
-    
     <GetStarted />
+    
    
     <HowItWorks />
     <WhatIsEdify />
@@ -98,6 +100,8 @@ const App = () => {
             <Route path="/ar-learning/chemistry" element={<MolecularChemistry />} />
             <Route path="/ar-learning/history" element={<AncientHistory />} />
             <Route path="/ar-learning/circuits" element={<CircuitBuilder />} />
+            <Route path="/learn-more" element={<LearnMore />} />
+            <Route path='/explore' element={<MorphingDemo/>} />
           </Routes>
           
           <Footer />

@@ -58,6 +58,7 @@ const HowItWorks = () => {
         </h2>
       </RevealOnScroll>
       
+      {/* --- SPLINE SCENE --- */}
       <div className="absolute inset-0 z-0 top-0 left-0 w-full h-full">
          <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" />
       </div>

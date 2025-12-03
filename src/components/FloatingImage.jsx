@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import Button from "./buttons/Button";
 import AnimatedTitle from "./ui/AnimatedTitle";
+import { Link } from "react-router-dom"; 
 
 const FloatingImage = () => {
   const frameRef = useRef(null);
@@ -16,7 +17,6 @@ const FloatingImage = () => {
     const xPos = clientX - rect.left;
     const yPos = clientY - rect.top;
 
-    // --- FIX: Corrected variable name from 'constSX' to 'const centerX' ---
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
@@ -65,7 +65,6 @@ const FloatingImage = () => {
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                   onMouseUp={handleMouseLeave}
-                  // Removed onMouseEnter={handleMouseLeave} as it can reset the animation abruptly when entering
                   src="https://alphatarget.com/wp-content/uploads/2024/05/artificial-intelligence-1.jpg"
                   alt="AI Course Preview"
                   className="object-cover w-full h-full rounded-lg shadow-2xl shadow-blue-500/20"
@@ -109,11 +108,14 @@ const FloatingImage = () => {
               <span className="text-white font-semibold"> AI-driven education</span> and shape your future amidst infinite opportunities.
             </p>
 
-            <Button
-              id="realm-btn"
-              title="Start Learning Now"
-              containerClass="mt-8 bg-blue-600 hover:bg-blue-500 text-white border-none shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-            />
+            {/* FIX: Wrapped Button in Link because Button component renders a <button> tag, not a link */}
+            <Link to="/ai-course">
+              <Button
+                id="realm-btn"
+                title="Start Learning Now"
+                containerClass="mt-8 bg-blue-600 hover:bg-blue-500 text-white border-none shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+              />
+            </Link>
           </div>
         </div>
       </div>

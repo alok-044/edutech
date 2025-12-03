@@ -79,7 +79,7 @@ const Hero = () => {
               className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <motion.a
-                href="#"
+                href="/signup"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold text-lg shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center cursor-pointer"
@@ -90,7 +90,7 @@ const Hero = () => {
               </motion.a>
               
               <motion.a
-                href="#"
+                href="/explore"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-slate-800/50 hover:bg-slate-700/50 text-white border border-slate-700 rounded-xl font-semibold text-lg backdrop-blur-sm transition-all flex items-center justify-center cursor-pointer"

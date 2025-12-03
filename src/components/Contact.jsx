@@ -154,7 +154,7 @@ const Contact = () => {
             </Link>
             
             <a 
-              href="#" 
+              href="/learn-more" 
               className="group relative text-sm font-semibold uppercase text-blue-200 transition-colors hover:text-white"
             >
               Learn More
